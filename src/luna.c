@@ -20,6 +20,7 @@
 #include "prettyprint.h"
 #include "codegen.h"
 #include "vm.h"
+#include "interpretor.h"
 
 // --ast
 
@@ -93,6 +94,9 @@ repl() {
       // print
       luna_prettyprint((luna_node_t *) root);
       linenoiseHistoryAdd(line);
+
+      // run interpretor
+      luna_interpret((luna_node_t *) root);
     }
     free(line);
   }
